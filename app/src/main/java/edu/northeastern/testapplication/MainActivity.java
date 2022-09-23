@@ -2,8 +2,10 @@ package edu.northeastern.testapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,5 +21,10 @@ public class MainActivity extends AppCompatActivity {
         int duration = Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(this, text, duration);
         toast.show();
+    }
+
+    public void ClickyClickyOnClick(View view) {
+        Intent intent = new Intent(this, ClickyClicky.class);
+        startActivity(intent);
     }
 }
