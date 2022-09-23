@@ -6,5 +6,5 @@ RepoLink: https://github.com/ce2cs/CS5520
 Author: Boyang Gao
 
 Progress:
-- [x] Homework 1
-- [x] Homework 2
+- [x] A1 First App
+- [x] A3 Clicky Clicky
