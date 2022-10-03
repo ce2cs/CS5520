@@ -9,4 +9,8 @@
     <string name="button_e">E</string>
     <string name="button_f">F</string>
     <string name="pressed_text">Pressed: </string>
+    <string name="personal_info">Name: Boyang Gao\nEmail: gao.boy@northeastern.edu</string>
+    <string name="link_collector_button">Link Collector</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

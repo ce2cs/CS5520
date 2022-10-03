@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,10 +15,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void aboutMeOnClick(View view) {
-        CharSequence text = "Name: Boyang Gao\nEmail: gao.boy@northeastern.edu";
-        int duration = Toast.LENGTH_SHORT;
-        Toast toast = Toast.makeText(this, text, duration);
-        toast.show();
+        Intent intent = new Intent(this, AboutMeActivity.class);
+        startActivity(intent);
+    }
+
+    public void linkCollectorOnClick(View view) {
+        Intent intent = new Intent(this, LinkCollectorActivity.class);
+        startActivity(intent);
     }
 
     public void ClickyClickyOnClick(View view) {
