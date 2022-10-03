@@ -8,3 +8,4 @@ Author: Boyang Gao
 Progress:
 - [x] A1 First App
 - [x] A3 Clicky Clicky
+- [x] A4 Link Collector
