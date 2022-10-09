@@ -28,4 +28,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ClickyClicky.class);
         startActivity(intent);
     }
+
+    public void primeOnClick(View view) {
+        Intent intent = new Intent(this, PrimeActivity.class);
+        startActivity(intent);
+    }
 }

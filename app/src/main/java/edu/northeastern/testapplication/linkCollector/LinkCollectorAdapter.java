@@ -16,12 +16,20 @@ import java.util.List;
 import edu.northeastern.testapplication.R;
 
 public class LinkCollectorAdapter extends RecyclerView.Adapter<LinkViewHolder> {
-    private final List<Link> links;
-    private final Context context;
+    private List<Link> links;
+    private Context context;
 
     public LinkCollectorAdapter(ArrayList<Link> links, Context context) {
         this.links = links;
         this.context = context;
+    }
+
+    public List<Link> getLinks() {
+        return links;
+    }
+
+    public void setLinks(List<Link> links) {
+        this.links = links;
     }
 
     @NonNull

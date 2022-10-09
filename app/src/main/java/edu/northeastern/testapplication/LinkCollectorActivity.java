@@ -1,6 +1,8 @@
 package edu.northeastern.testapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,11 +10,11 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.URLUtil;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -26,27 +28,26 @@ import edu.northeastern.testapplication.linkCollector.LinkCollectorAdapter;
 
 public class LinkCollectorActivity extends AppCompatActivity {
 
-    private ArrayList<Link> links;
-    private LinkCollectorAdapter linkCollectorAdapter;
+    private ArrayList<Link> links = new ArrayList<>();
+    private LinkCollectorAdapter linkCollectorAdapter = new LinkCollectorAdapter(links, this);
+    private LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
     private RecyclerView linkCollectorRecyclerView;
+    private Parcelable recyclerViewState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println("onCreate!");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_link_collector);
-
-
-        ArrayList<Link> links = new ArrayList<>();
-        linkCollectorAdapter = new LinkCollectorAdapter(links, this);
 
         //Adding a new person object to the personList arrayList
         linkCollectorRecyclerView = findViewById(R.id.linkCollectorRecyclerView);
 
         //This defines the way in which the RecyclerView is oriented
-        linkCollectorRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        linkCollectorRecyclerView.setLayoutManager(linearLayoutManager);
 
         //Associates the adapter with the RecyclerView
-        linkCollectorRecyclerView.setAdapter(new LinkCollectorAdapter(links, this));
+        linkCollectorRecyclerView.setAdapter(linkCollectorAdapter);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -80,5 +81,49 @@ public class LinkCollectorActivity extends AppCompatActivity {
                 builder.show();
             }
         });
+
+
+        ItemTouchHelper mIth = new ItemTouchHelper(
+                new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN,
+                        ItemTouchHelper.LEFT) {
+                    @Override
+                    public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                        return false;
+                    }
+
+                    @Override
+                    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+
+                    }
+                });
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        links = savedInstanceState.getParcelableArrayList("links");
+        for (Link l: links) {
+            System.out.println(l.getName() + l.getUrl());
+        }
+        linkCollectorAdapter.setLinks(links);
+        for (Link l: linkCollectorAdapter.getLinks()) {
+            System.out.println(l.getName() + l.getUrl());
+        }
+        linkCollectorAdapter.notifyDataSetChanged();
+        recyclerViewState = savedInstanceState.getParcelable("recyclerViewState");
+        if (recyclerViewState != null) {
+            linkCollectorRecyclerView.getLayoutManager().onRestoreInstanceState(recyclerViewState);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putParcelableArrayList("links", links);
+        recyclerViewState = linkCollectorRecyclerView.getLayoutManager().onSaveInstanceState();
+        if (recyclerViewState != null) {
+            outState.putParcelable("recyclerViewState", recyclerViewState);
+        }
+        super.onSaveInstanceState(outState);
     }
 }

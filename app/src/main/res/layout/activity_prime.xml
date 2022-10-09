@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PrimeActivity">
+
+    <Button
+        android:id="@+id/terminateSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="terminateOnClick"
+        android:text="@string/terminate_search"
+        app:layout_constraintBottom_toTopOf="@id/primeText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/findPrimes" />
+
+    <Button
+        android:id="@+id/findPrimes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="findPrimesOnClick"
+        android:text="@string/find_primes"
+        app:layout_constraintBottom_toTopOf="@+id/terminateSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/primeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="pacifierCheckOnClick"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/terminateSearch" />
+
+    <CheckBox
+        android:id="@+id/pacifierSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="pacifierSwitchOnClick"
+        android:text="@string/pacifier_switch"
+        app:layout_constraintBottom_toTopOf="@+id/primeText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/terminateSearch" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
