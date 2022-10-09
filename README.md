@@ -9,3 +9,4 @@ Progress:
 - [x] A1 First App
 - [x] A3 Clicky Clicky
 - [x] A4 Link Collector
+- [x] A5 Prime
