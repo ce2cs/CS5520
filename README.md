@@ -10,3 +10,4 @@ Progress:
 - [x] A3 Clicky Clicky
 - [x] A4 Link Collector
 - [x] A5 Prime
+- [x] A6 Location
