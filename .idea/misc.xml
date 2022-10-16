@@ -12,7 +12,8 @@
         <entry key="app/src/main/res/layout/activity_about_me.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_clicky_clicky.xml" value="0.20252732240437157" />
         <entry key="app/src/main/res/layout/activity_link_collector.xml" value="0.31017369727047145" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/activity_location.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_prime.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_prime_aaactivity.xml" value="0.1956521739130435" />
         <entry key="app/src/main/res/layout/back_pressed_dialog.xml" value="0.1646403242147923" />

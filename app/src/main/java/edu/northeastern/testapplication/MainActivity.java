@@ -33,4 +33,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PrimeActivity.class);
         startActivity(intent);
     }
+
+    public void locationOnClick(View view) {
+        Intent intent = new Intent(this, LocationActivity.class);
+        startActivity(intent);
+    }
 }

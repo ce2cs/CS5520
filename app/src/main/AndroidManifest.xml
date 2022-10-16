@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="edu.northeastern.testapplication">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestApplication"
         tools:targetApi="31">
+        <activity
+            android:name=".LocationActivity"
+            android:exported="false" />
         <activity
             android:name=".PrimeActivity"
             android:exported="false" />

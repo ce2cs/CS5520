@@ -16,4 +16,6 @@
     <string name="terminate_search">Terminate Search</string>
     <string name="pacifier_switch">Pacifier Switch</string>
     <string name="back_prompt">Are you sure to terminate?</string>
+    <string name="location_button">Location</string>
+    <string name="reset_distance_button">Reset Distance</string>
 </resources>
